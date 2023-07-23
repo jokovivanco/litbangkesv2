@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.navbar_list {
+  @apply container flex flex-col justify-center gap-6 text-primary-green text-lg;
+}
+
+.navbar_list_desktop {
+  @apply text-white font-semibold text-xl;
+}
+
+.navbar_list_desktop_child {
+  @apply bg-white text-primary-green mt-2 flex flex-col;
+}
+
+.navbar_list_desktop_child li,
+.navbar_list_desktop_child_inner li {
+  @apply px-6 py-4 whitespace-nowrap;
+}
+
+.navbar_list_desktop_child > li:not([class='button']):hover,
+.navbar_list_desktop_child_inner > li:hover {
+  @apply bg-primary-green/50;
+}
+
+.navbar_list_desktop_child_inner {
+  @apply pt-4;
+}
+
+.navbar_dropdown {
+  @apply flex items-center gap-2 w-fit;
+}
+
+.navbar_toggle {
+  @apply overflow-hidden transition-all duration-700;
+}
+
+.open_nav {
+  @apply translate-x-0;
+}
+
+.close_nav {
+  @apply translate-x-full;
+}
+
+.navbar_scrolled_down {
+  @apply bg-primary-green;
+}
+
+.bg_gradient {
+  background: linear-gradient(
+    135deg,
+    #8dcb86 0%,
+    #29b6b3 35.93%,
+    #38b9ac 75.59%,
+    #8dcb86 100%
+  );
+}
+
+.menu_container {
+  @apply fixed top-0 overflow-y-auto lg:overflow-visible transition-all duration-700 h-full lg:h-auto w-full lg:w-auto left-0 lg:left-auto;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal::before {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  @apply bg-black/20;
+}
