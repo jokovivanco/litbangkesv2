@@ -1,4 +1,5 @@
 import LinkCard from '@components/main/LinkCard';
+import ButtonGreenInverse from '@components/ButtonGreenInverse';
 
 interface IData {
   id: number;
@@ -9,9 +10,10 @@ interface IData {
 interface ILinkListParams {
   data: IData[];
   priority?: boolean;
+  link: string;
 }
 
-const LinkList = ({ data, priority }: ILinkListParams) => {
+const LinkList = ({ data, priority, link }: ILinkListParams) => {
   return (
     <div className="flex flex-col gap-4">
       {data.map((item) => (
@@ -22,6 +24,9 @@ const LinkList = ({ data, priority }: ILinkListParams) => {
           priority={priority}
         />
       ))}
+      <div className="flex justify-center items-center">
+        <ButtonGreenInverse link={link} text="Lainnya" />
+      </div>
     </div>
   );
 };

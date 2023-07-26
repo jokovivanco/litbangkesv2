@@ -13,13 +13,13 @@ const ZonaIntegritas = () => {
     },
     {
       id: 2,
-      title: 'Amanat WBK 25 Maret 2019',
-      link: '/download/amanat-wbk-25-maret-2019',
+      title: 'Amanat WBK 25 Maret 2020',
+      link: '/download/amanat-wbk-25-maret-2020',
     },
     {
       id: 3,
-      title: 'Amanat WBK 25 Maret 2019',
-      link: '/download/amanat-wbk-25-maret-2019',
+      title: 'Amanat WBK 25 Maret 2021',
+      link: '/download/amanat-wbk-25-maret-2021',
     },
   ];
 
@@ -39,13 +39,7 @@ const ZonaIntegritas = () => {
           </div>
           <div className="lg:flex-1">
             <div className="flex flex-col gap-4 lg:items-center">
-              <LinkList data={data} />
-            </div>
-            <div className="mt-8">
-              <ButtonGreenInverse
-                link="/pages/zona-integritas"
-                text="Selengkapnya"
-              />
+              <LinkList data={data} link='/downloads/zona-integritas' />
             </div>
           </div>
         </div>

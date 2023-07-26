@@ -11,17 +11,19 @@ interface ILinkListWithSectionParams {
   title: string;
   data: IData[];
   priority?: boolean;
+  link: string;
 }
 
 const LinkListWithSection = ({
   title,
   data,
   priority,
+  link,
 }: ILinkListWithSectionParams) => {
   return (
     <div className={priority ? 'mb-8' : ''}>
       <Section title={title}>
-        <LinkList data={data} priority={priority} />
+        <LinkList data={data} priority={priority} link={link} />
       </Section>
     </div>
   );

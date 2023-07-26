@@ -26,15 +26,16 @@ const Informasi = () => {
         data={pengumumans}
         title="Pengumuman"
         priority={true}
+        link="/downloads/pengumuman"
       />
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <LinkListWithSection data={pengumumans} title="Format Surat" />
-        <LinkListWithSection data={pengumumans} title="Laporan Tahunan" />
-        <LinkListWithSection data={pengumumans} title="Laporan Kinerja" />
-        <LinkListWithSection data={pengumumans} title="Rencana Kegiatan" />
-        <LinkListWithSection data={pengumumans} title="Keuangan" />
-        <LinkListWithSection data={pengumumans} title="Kearsipan" />
-        <LinkListWithSection data={pengumumans} title="Lain-lain" />
+        <LinkListWithSection data={pengumumans} title="Format Surat" link="/downloads/format-surat" />
+        <LinkListWithSection data={pengumumans} title="Laporan Tahunan" link="/downloads/laporan-tahunan" />
+        <LinkListWithSection data={pengumumans} title="Laporan Kinerja" link="/downloads/laporan-kinerja" />
+        <LinkListWithSection data={pengumumans} title="Rencana Kegiatan" link="/downloads/laporan-kegiatan" />
+        <LinkListWithSection data={pengumumans} title="Keuangan" link="/downloads/keuangan" />
+        <LinkListWithSection data={pengumumans} title="Kearsipan" link="/downloads/kearsipan" />
+        <LinkListWithSection data={pengumumans} title="Lain-lain" link="/downloads/lain-lain" />
       </div>
     </section>
   );

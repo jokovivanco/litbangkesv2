@@ -68,13 +68,14 @@ const Pages = ({ params }: { params: { slug: string } }) => {
   ];
 
   const { slug } = params;
+  
   return (
-    <Section title="Berita">
+    <Section title={slug}>
       <div>
         <div className="grid column grid-cols-2 lg:grid-cols-3 gap-4">
           {
             slug === 'berita'? 
-            beritas.slice(0, 3).map((berita) => (
+            beritas.map((berita) => (
               <BlogCard
                 key={berita.title}
                 imgUrl={berita.imgUrl}
