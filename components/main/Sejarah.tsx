@@ -14,7 +14,7 @@ const Sejarah = () => {
               width={0}
               height={0}
               sizes="100vw"
-              className="w-full h-auto rounded-lg aspect-video"
+              className="w-full rounded-lg object-cover aspect-video"
             />
           </div>
           <div className="flex-1">
