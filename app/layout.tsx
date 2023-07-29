@@ -4,11 +4,10 @@ import "@styles/globals.css";
 import { Nunito } from "next/font/google";
 import { useCallback, useState } from "react";
 import { AdminStore as AdminContext } from "@app/utils/admin-store";
-import { menuConstants } from "./utils/constants";
+import { menuConstants } from "@app/utils/constants";
 
 export const metadata = {
   title: "Litbangkes",
-  description: "Kemenkes",
 };
 
 const nunito = Nunito({ subsets: ["latin"] });
