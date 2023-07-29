@@ -8,6 +8,7 @@ import { menuConstants } from "./utils/constants";
 
 export const metadata = {
   title: "Litbangkes",
+  description: "Kemenkes",
 };
 
 const nunito = Nunito({ subsets: ["latin"] });
