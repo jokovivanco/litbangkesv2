@@ -1,0 +1,59 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Vission {
+  text String @id
+}
+
+// table mission
+model Missions {
+  id Int @id @defalt(autoincrement())
+  text String
+}
+
+// table histories
+model Histories {
+  id Int @id @defalt(autoincrement())
+  year Int
+  asciiText String
+}
+
+// table organization tree
+model OrganizationImage {
+  image File
+}
+
+// table tupoksi
+model Tupoksi {
+  id: number;
+  title: string;
+  text: string;
+}
+
+type DownloadType =
+  | "zona-integritas"
+  | "pengumuman"
+  | "format-surat"
+  | "laporan-tahunan"
+  | "laporan-kinerja"
+  | "rencana-kegiatan"
+  | "keuangan"
+  | "kearsipan"
+  | "lain-lain";
+
+// table files
+model Downloads {
+  id: number;
+  name: string;
+  file: File;
+  page: DownloadType;
+}
