@@ -1,5 +1,15 @@
+import AdminHeader from "@components/admin/AdminHeader";
+
 const AdminBerita = () => {
-  return <div>AdminBerita</div>;
+  const onSave = () => {
+    console.log("saved");
+  };
+
+  return (
+    <div>
+      <AdminHeader title="Berita" onSave={onSave} />
+    </div>
+  );
 };
 
 export default AdminBerita;

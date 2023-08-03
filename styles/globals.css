@@ -91,3 +91,11 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.admin_title {
+  @apply uppercase font-bold text-primary-green
+}
+
+.input_title {
+  @apply font-bold uppercase text-black mb-2;
+}

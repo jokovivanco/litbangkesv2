@@ -1,5 +1,15 @@
+import AdminHeader from "@components/admin/AdminHeader";
+
 const AdminGaleri = () => {
-  return <div>AdminGaleri</div>;
+  const onSave = () => {
+    console.log("saved");
+  };
+
+  return (
+    <div>
+      <AdminHeader title="Galeri" onSave={onSave} />
+    </div>
+  );
 };
 
 export default AdminGaleri;

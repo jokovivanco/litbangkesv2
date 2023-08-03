@@ -3,8 +3,8 @@
 import { menuConstants } from "@app/utils/constants";
 import { AdminStore as AdminContext } from "@app/utils/admin-store";
 import { Fragment } from "react";
-import Image from "next/image";
 import { useCallback, useState } from "react";
+import Image from "next/image";
 
 const AdminLayoutSlug = ({ children }: { children: React.ReactNode }) => {
   const [sideActive, setSideActive] = useState(0);
@@ -16,8 +16,8 @@ const AdminLayoutSlug = ({ children }: { children: React.ReactNode }) => {
   return (
     <AdminContext.Provider value={{ sideActive, onMenuClick, sideActiveData }}>
       <section>
-        <div className="flex">
-          <div className="basis-1/5 w-full h-screen flex flex-col overflow-y-hidden">
+        <div className="flex w-full h-screen">
+          <div className="basis-1/5 w-full h-full flex flex-col overflow-y-hidden">
             <div className="mx-auto py-2 flex justify-center items-start lg:items-center w-full bg-black">
               <div className="flex items-center space-x-4">
                 <Image
@@ -54,7 +54,9 @@ const AdminLayoutSlug = ({ children }: { children: React.ReactNode }) => {
           </div>
 
           {/* Content */}
-          <div className="grow">{children}</div>
+          <div className="grow h-screen overflow-y-hidden">
+            <div className="h-full w-full overflow-y-auto">{children}</div>
+          </div>
         </div>
       </section>
     </AdminContext.Provider>

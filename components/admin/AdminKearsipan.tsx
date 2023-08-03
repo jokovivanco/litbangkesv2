@@ -1,5 +1,15 @@
+import AdminHeader from "@components/admin/AdminHeader";
+
 const AdminKearsipan = () => {
-  return <div>AdminKearsipan</div>;
+  const onSave = () => {
+    console.log("saved");
+  };
+
+  return (
+    <div>
+      <AdminHeader title="Kearsipan" onSave={onSave} />
+    </div>
+  );
 };
 
 export default AdminKearsipan;

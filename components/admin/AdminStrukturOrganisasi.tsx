@@ -1,5 +1,15 @@
+import AdminHeader from "@components/admin/AdminHeader";
+
 const AdminStrukturOrganisasi = () => {
-  return <div>AdminStrukturOrganisasi</div>;
+  const onSave = () => {
+    console.log("saved");
+  };
+
+  return (
+    <div>
+      <AdminHeader title="Struktur Organisasi" onSave={onSave} />
+    </div>
+  );
 };
 
 export default AdminStrukturOrganisasi;

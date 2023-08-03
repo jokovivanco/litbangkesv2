@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 interface ITupoksiCardParams {
   imgUrl: string;
@@ -8,7 +8,7 @@ interface ITupoksiCardParams {
 
 const TupoksiCard = ({ imgUrl, heading, text }: ITupoksiCardParams) => {
   return (
-    <div className="bg-primary-green/20 flex flex-col justify-center rounded-lg gap-4 p-8">
+    <div className="bg-primary-green/20 flex flex-col justify-center rounded-lg gap-4 p-8 flex-1">
       <Image
         src={imgUrl}
         alt={heading}

@@ -7,7 +7,6 @@ const AdminSlug = () => {
   const { sideActiveData } = useContext(AdminStore);
   return (
     <div className="p-7">
-      <h1>{sideActiveData.name}</h1>
       {sideActiveData.component}
     </div>
   );
