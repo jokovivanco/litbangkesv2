@@ -3,11 +3,11 @@
 import { useState, Fragment } from "react";
 import InputFieldText from "@components/InputFieldTextWithDelete";
 import AdminHeader from "@components/admin/AdminHeader";
-import dummySejarah from "@app/utils/dummySejarah";
+import dummySejarah from "@utils/dummySejarah";
 import { MdAdd } from "react-icons/md";
 import { v4 } from "uuid";
 import InputTextArea from "@components/InputTextArea";
-import groupArray from "@app/utils/groupArray";
+import groupArray from "@utils/groupArray";
 
 const AdminSejarah = () => {
   const [sejarah, setSejarah] = useState(dummySejarah);

@@ -8,7 +8,7 @@ export const AdminStore = createContext<{
   sideActiveData: {
     id: number;
     name: string;
-    component: React.ReactNode;
+    component: React.ReactElement;
   };
 }>({
   sideActive: 0,

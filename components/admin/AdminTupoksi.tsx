@@ -6,8 +6,8 @@ import AdminHeader from "@components/admin/AdminHeader";
 import { MdAdd } from "react-icons/md";
 import { v4 } from "uuid";
 import InputTextArea from "@components/InputTextArea";
-import groupArray from "@app/utils/groupArray";
-import dummyTupoksi from "@app/utils/dummyTupoksi";
+import groupArray from "@utils/groupArray";
+import dummyTupoksi from "@utils/dummyTupoksi";
 
 const Tupoksi = () => {
   const [tupoksi, setTupoksi] = useState(dummyTupoksi);

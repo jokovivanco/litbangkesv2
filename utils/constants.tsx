@@ -1,5 +1,3 @@
-import { createElement } from "react";
-
 import AdminVisiMisi from "@components/admin/AdminVisiMisi";
 import AdminSejarah from "@components/admin/AdminSejarah";
 import AdminStrukturOrganisasi from "@components/admin/AdminStrukturOrganisasi";
@@ -20,76 +18,76 @@ export const menuConstants = [
   {
     id: 0,
     name: "Visi / Misi",
-    component: createElement(AdminVisiMisi),
+    component: <AdminVisiMisi />,
   },
   {
     id: 1,
     name: "Sejarah",
-    component: createElement(AdminSejarah),
+    component: <AdminSejarah />,
   },
   {
     id: 2,
     name: "Struktur Organisasi",
-    component: createElement(AdminStrukturOrganisasi),
+    component: <AdminStrukturOrganisasi />,
   },
   {
     id: 3,
     name: "Tupoksi",
-    component: createElement(AdminTupoksi),
+    component: <AdminTupoksi />,
   },
   {
     id: 4,
     name: "Zona Integritas",
-    component: createElement(AdminZonaIntegritas),
+    component: <AdminZonaIntegritas />,
   },
   {
     id: 5,
     name: "Galeri",
-    component: createElement(AdminGaleri),
+    component: <AdminGaleri />,
   },
   {
     id: 6,
     name: "Berita",
-    component: createElement(AdminBerita),
+    component: <AdminBerita />,
   },
   {
     id: 7,
     name: "Pengumuman",
-    component: createElement(AdminPengumuman),
+    component: <AdminPengumuman />,
   },
   {
     id: 8,
     name: "Format Surat",
-    component: createElement(AdminFormatSurat),
+    component: <AdminFormatSurat />,
   },
   {
     id: 9,
     name: "Laporan Tahunan",
-    component: createElement(AdminLaporanTahunan),
+    component: <AdminLaporanTahunan />,
   },
   {
     id: 10,
     name: "Laporan Kinerja",
-    component: createElement(AdminLaporanKinerja),
+    component: <AdminLaporanKinerja />,
   },
   {
     id: 11,
     name: "Rencana Kegiatan",
-    component: createElement(AdminRencanaKegiatan),
+    component: <AdminRencanaKegiatan />,
   },
   {
     id: 12,
     name: "Keuangan",
-    component: createElement(AdminKeuangan),
+    component: <AdminKeuangan />,
   },
   {
     id: 13,
     name: "Kearsipan",
-    component: createElement(AdminKearsipan),
+    component: <AdminKearsipan />,
   },
   {
     id: 14,
     name: "Lain-lain",
-    component: createElement(AdminLainLain),
+    component: <AdminLainLain />,
   },
 ];

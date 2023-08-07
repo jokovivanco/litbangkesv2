@@ -6,6 +6,48 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+model Vission {
+  id       Int       @id @default(autoincrement())
+  text     String
+  missions Mission[]
+}
+
+model Mission {
+  id        String   @id
+  text      String
+  vission   Vission  @relation(fields: [vissionId], references: [id])
+  vissionId Int
+  createdAt DateTime @default(now())
+}
+
+model Sejarah {
+  id        String   @id
+  year      Int
+  textarea  String
+  createdAt DateTime @default(now())
+}
+
+model Tupoksi {
+  id        String   @id
+  title     String
+  textarea  String
+  createdAt DateTime @default(now())
+}
+
+model Files {
+  id        String   @id
+  name      String
+  file      String
+  category  String
+  createdAt DateTime @default(now())
+}
+
+model StrukturOrganisasi {
+  id        String   @id
+  file      String
+  createdAt DateTime @default(now())
 }

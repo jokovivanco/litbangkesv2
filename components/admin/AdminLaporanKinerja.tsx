@@ -3,7 +3,7 @@
 import { useState } from "react";
 import AdminHeader from "@components/admin/AdminHeader";
 import PDFCard from "@components/admin/PDFCard";
-import dummyZonaIntegritas from "@app/utils/dummyZonaIntegritas";
+import dummyZonaIntegritas from "@utils/dummyZonaIntegritas";
 import { MdAdd } from "react-icons/md";
 import { v4 } from "uuid";
 

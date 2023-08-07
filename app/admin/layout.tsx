@@ -1,7 +1,7 @@
 "use client";
 
-import { menuConstants } from "@app/utils/constants";
-import { AdminStore as AdminContext } from "@app/utils/admin-store";
+import { menuConstants } from "@utils/constants";
+import { AdminStore as AdminContext } from "@utils/admin-store";
 import { Fragment } from "react";
 import { useCallback, useState } from "react";
 import Image from "next/image";
