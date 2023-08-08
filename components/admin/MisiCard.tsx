@@ -35,6 +35,20 @@ const MisiCard = ({ order, data, setData }: IMisiCardParams) => {
   };
 
   const onDelete = async () => {
+    if (data.newData) {
+      setData((prev) => {
+        const newMissions = prev.missions.filter(
+          (mission) => mission.id !== data.id
+        );
+        return {
+          ...prev,
+          missions: newMissions,
+        };
+      });
+
+      return;
+    }
+
     try {
       setData((prev) => ({ ...prev, isLoading: true }));
       await axios(`/api/mission/${data.id}`, {

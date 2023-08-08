@@ -1,18 +1,43 @@
 "use client";
 
-import { useState, Fragment } from "react";
-import InputFieldText from "@components/InputFieldTextWithDelete";
+import { useState, useEffect, Fragment } from "react";
 import AdminHeader from "@components/admin/AdminHeader";
-import { MdAdd } from "react-icons/md";
-import { v4 } from "uuid";
-import InputTextArea from "@components/InputTextArea";
+import AdminTupoksiComponent from "@components/admin/AdminTupoksiComponent";
 import groupArray from "@utils/groupArray";
-import dummyTupoksi from "@utils/dummyTupoksi";
+import { Oval } from "react-loader-spinner";
+import axios from "axios";
 
-const Tupoksi = () => {
-  const [tupoksi, setTupoksi] = useState(dummyTupoksi);
+interface ITupoksiData {
+  id: string;
+  title: string;
+  textarea: string;
+}
 
-  const onSave = () => {
+interface IData {
+  tupoksi: ITupoksiData[];
+  isLoading: boolean;
+}
+
+const AdminTupoksi = () => {
+  const [data, setData] = useState<IData>({
+    tupoksi: [],
+    isLoading: true,
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch("/api/tupoksi");
+      const data = await response.json();
+      setData({
+        tupoksi: data,
+        isLoading: false,
+      });
+    };
+
+    fetchData();
+  }, []);
+
+  const onSave = async () => {
     const data = Array.prototype.slice.call(
       document.querySelectorAll("input, textarea")
     );
@@ -28,29 +53,65 @@ const Tupoksi = () => {
         textarea,
       };
     });
-    console.log(dataTupoksi);
+
+    if (!dataTupoksi.length) {
+      return console.log("Tupoksi is empty!");
+    }
+
+    const checkDataTupoksi = dataTupoksi.every((item) => {
+      return item.title.length > 0 && item.textarea.length > 0;
+    });
+
+    if (!checkDataTupoksi) {
+      return console.log("Some of Tupoksi Item is empty!");
+    }
+
+    setData((prev) => ({ ...prev, isLoading: true }));
+
+    const dataTupoksiUpdated = dataTupoksi.map(async (dataTupoksi) => {
+      return await axios(`/api/tupoksi/${dataTupoksi.id}`, {
+        method: "PATCH",
+        data: {
+          title: dataTupoksi.title,
+          textarea: dataTupoksi.textarea,
+        },
+      });
+    });
+
+    Promise.all(dataTupoksiUpdated).then((result) => {
+      const dataTupoksi = result.map((tupoksi) => tupoksi.data);
+      setData((prev) => ({
+        ...prev,
+        tupoksi: dataTupoksi,
+        isLoading: false,
+      }));
+    });
   };
+
+  if (data.isLoading)
+    return (
+      <div className="w-full h-full flex justify-center items-center">
+        <Oval
+          height={80}
+          width={80}
+          color="#21928F"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={true}
+          ariaLabel="oval-loading"
+          secondaryColor="#21928FCC"
+          strokeWidth={2}
+          strokeWidthSecondary={2}
+        />
+      </div>
+    );
 
   return (
     <div>
       <AdminHeader title="Tupoksi" onSave={onSave} />
-      {tupoksi.map((tup) => (
-        <Fragment key={tup.id}>
-          <div className="space-y-2 mb-4">
-            <InputFieldText
-              data={{ id: tup.id, text: tup.title }}
-              placeholder="Judul..."
-            />
-            <InputTextArea
-              data={{ id: tup.id, textarea: tup.textarea }}
-              placeholder="Teks..."
-            />
-          </div>
-          <div className="w-full h-1 rounded-lg bg-gray-500/20 mb-5" />
-        </Fragment>
-      ))}
+      <AdminTupoksiComponent tupoksi={data.tupoksi} />
     </div>
   );
 };
 
-export default Tupoksi;
+export default AdminTupoksi;

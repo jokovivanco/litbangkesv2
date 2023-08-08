@@ -1,4 +1,4 @@
-const groupArray = <T>(array: T[], groupNumber: 2 | 3) => {
+const groupArray = <T>(array: T[], groupNumber: number) => {
   const groups = [];
   for (let i = 0; i < array.length; i += groupNumber) {
     const group: T[] = [];

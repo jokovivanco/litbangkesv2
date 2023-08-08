@@ -30,9 +30,6 @@ const getMissions = async () => {
 };
 
 const AdminVisiMisi = () => {
-  // const [vission, setVission] = useState<string>("");
-  // const [missions, setMissions] = useState<IDataMission[]>([]);
-  // const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<IData>({
     vission: "",
     missions: [],
@@ -46,13 +43,9 @@ const AdminVisiMisi = () => {
         getMissions(),
       ]);
 
-      // setVission(vission.text);
       setData((prev) => ({ ...prev, vission: vission.text }));
 
       if (missions.length > 0) {
-        // setMissions(
-        //   missions.map((mission: Missions) => ({ ...mission, newData: false }))
-        // );
         setData((prev) => ({
           ...prev,
           missions: missions.map((mission: Missions) => ({
@@ -61,11 +54,9 @@ const AdminVisiMisi = () => {
           })),
         }));
       } else {
-        // setMissions(missions);
         setData((prev) => ({ ...prev, missions }));
       }
 
-      // setIsLoading(false);
       setData((prev) => ({ ...prev, isLoading: false }));
     };
 
@@ -73,9 +64,6 @@ const AdminVisiMisi = () => {
   }, []);
 
   const onSave = async () => {
-    // setIsLoading(true);
-    setData((prev) => ({ ...prev, isLoading: true }));
-
     const data = Array.prototype.slice.call(document.querySelectorAll("input"));
     const dataVission = data[0].value;
     if (!dataVission) {
@@ -110,6 +98,8 @@ const AdminVisiMisi = () => {
       return console.log("Some of Mission is empty!");
     }
 
+    setData((prev) => ({ ...prev, isLoading: true }));
+
     const updateVission = async () => {
       return await axios("/api/vission", {
         method: "PATCH",
@@ -135,7 +125,6 @@ const AdminVisiMisi = () => {
         return await axios(`/api/mission/${mission.id}`, {
           method: "PATCH",
           data: {
-            id: mission.id,
             text: mission.text,
             vissionId: mission.vissionId,
           },
@@ -146,9 +135,6 @@ const AdminVisiMisi = () => {
     Promise.all([updateVission(), ...updateMissions()]).then((result) => {
       const vission = result[0].data.text;
       const missions = result.slice(1).map((mission) => mission.data);
-      // setVission(vission);
-      // setMissions(missions.map((mission) => ({ ...mission, newData: false })));
-      // setIsLoading(false);
       setData((prev) => ({
         ...prev,
         vission,
@@ -183,7 +169,7 @@ const AdminVisiMisi = () => {
         <AdminVissionComponent vission={data.vission} setData={setData} />
       )}
       <div className="mt-4">
-        {data.missions && (
+        {data.missions.length > 0 && (
           <AdminMissionComponent missions={data.missions} setData={setData} />
         )}
       </div>
